@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     @IBOutlet var outputText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        outputText.isHidden = true
         // Do any additional setup after loading the view.
     }
     @IBAction func input(_ sender: Any) {
@@ -33,7 +34,6 @@ class ViewController: UIViewController {
     
     @IBAction func test(_ sender: Any) {
         inputText = textField.text!
-        //outputText.text = inputText
         
         // URLRequstの設定
         var request = URLRequest(url: URL(string: "https://labs.goo.ne.jp/api/hiragana")!)
@@ -65,6 +65,8 @@ class ViewController: UIViewController {
                     }
                     print(jsonData.converted)
                     DispatchQueue.main.async {
+                        //json変換に成功した時に結果を表示する。
+                        self.outputText.isHidden = false
                         self.outputText.text = jsonData.converted
                     }
                 } else {
