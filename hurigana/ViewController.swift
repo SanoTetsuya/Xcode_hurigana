@@ -21,15 +21,14 @@ struct PostData: Codable {
 }
 class ViewController: UIViewController {
 
-    @IBOutlet var textField: UITextField!
-    var  inputText: String!
-    @IBOutlet var outputText: UILabel!
+    @IBOutlet var textField: UITextField! //文字入力部分
+    var  inputText: String! //入力文字
+    @IBOutlet var outputText: UILabel! //ひらがなに変換した後のテキスト
     override func viewDidLoad() {
         super.viewDidLoad()
+        //画面初期起動時には出力結果を隠します。
         outputText.isHidden = true
         // Do any additional setup after loading the view.
-    }
-    @IBAction func input(_ sender: Any) {
     }
     
     @IBAction func test(_ sender: Any) {
